@@ -128,21 +128,25 @@ function App() {
               )}
             </ActionIcon>
           </Group>
-          {isInputsValue.map((el) => (
-            <Card key={el.id} withBorder mt="sm">
-              <Group position="apart">
-                <Text weight="bold">{el.title}</Text>
-                <ActionIcon
-                  onClick={() => deleteToDo(el.id)}
-                  color="red"
-                  variant="transparent"
-                >
-                  <Trash />
-                </ActionIcon>
-              </Group>
-              <Text>{el.summary}</Text>
-            </Card>
-          ))}
+          {isInputsValue.length > 0 ? (
+            isInputsValue.map((el) => (
+              <Card key={el.id} withBorder mt="sm">
+                <Group position="apart">
+                  <Text weight="bold">{el.title}</Text>
+                  <ActionIcon
+                    onClick={() => deleteToDo(el.id)}
+                    color="red"
+                    variant="transparent"
+                  >
+                    <Trash />
+                  </ActionIcon>
+                </Group>
+                <Text>{el.summary}</Text>
+              </Card>
+            ))
+          ) : (
+            <Text sx={{ marginTop: "20px" }}>You have no tasks</Text>
+          )}
           <Button onClick={openModal} sx={{ width: "100%", marginTop: "12px" }}>
             New Task
           </Button>
