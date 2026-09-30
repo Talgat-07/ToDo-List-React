@@ -95,8 +95,6 @@ function App() {
     setTheme((e) => (e === "light" ? "dark" : "light"));
   };
 
-  console.log("hello")
-
   const changeToDo = (o) => {
     setModalEditOpen(true);
     setInputOne(o.title);
