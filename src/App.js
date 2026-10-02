@@ -34,15 +34,6 @@ function App() {
   const [isInputOne, setInputOne] = useState("");
   const [isInputTwo, setInputTwo] = useState("");
   const [isInputId, setInputId] = useState("");
-  const [isDel, setDel] = useState(false);
-
-  const hendelChangeDel = () => {
-    if (isTheme === "dark") {
-      setDel(true);
-    } else {
-      alert("idi nahui");
-    }
-  };
 
   const [isInputsValue, setInputsValue] = useLocalStorage({
     key: "isInputsValue",
@@ -102,8 +93,6 @@ function App() {
     setInputId(o.id);
   };
 
-  if (isDel) return <></>;
-
   return (
     <MantineProvider
       theme={{ colorScheme: isTheme, defaultRadius: "md" }}
@@ -111,7 +100,6 @@ function App() {
       withNormalizeCSS
     >
       <div className="App">
-        <Button onClick={hendelChangeDel}>delete all</Button>
         <Modal
           opened={isModalOpen || isModalEditOpen}
           size="md"
